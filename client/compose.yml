@@ -1,0 +1,13 @@
+services:
+  next:
+    build: .
+    volumes:
+      - .:/usr/src/app
+    command: bash -c " npm install && npm run dev"
+    ports:
+      - "3000:3000"
+    networks:
+      - api_sail
+networks:
+  api_sail:
+    external: true
