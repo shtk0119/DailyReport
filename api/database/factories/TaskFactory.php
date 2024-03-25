@@ -19,12 +19,12 @@ class TaskFactory extends Factory
 	public function definition(): array
 	{
 		return [
-			'user_id' => User::factory(),
+			'user_id' => User::inRandomOrder()->first()->id ?? User::factory(),
 			'title' => fake()->sentence(),
 			'status' => fake()->numberBetween(0, 100),
 			'start_date' => Carbon::today(),
 			'finish_date' => Carbon::today()->addDays(7),
-			'need_time' => Carbon::now()->startOfDay()->addMinutes(fake()->numberBetween(0, 300))->format('H:m:s'),
+			'need_time' => Carbon::now()->startOfDay()->addMinutes(fake()->numberBetween(0, 180))->format('H:i:s'),
 			'created_at' => now(),
       'updated_at' => now(),
 		];
