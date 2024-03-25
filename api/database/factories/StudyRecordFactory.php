@@ -12,7 +12,7 @@ use App\Models\User;
 class StudyRecordFactory extends Factory
 {
 	/**
-	 * Define the model's default state.
+	 * モデルのデフォルト状態を定義します。
 	 *
 	 * @return array<string, mixed>
 	 */
