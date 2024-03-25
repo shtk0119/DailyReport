@@ -15,7 +15,7 @@ return new class extends Migration
 			$table->unsignedInteger('status');
 			$table->date('start_date');
 			$table->date('end_date');
-			$table->time('need_time');
+			$table->unsignedBigInteger('need_time');
 			$table->timestamps();
 		});
 	}
