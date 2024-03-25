@@ -12,6 +12,7 @@ return new class extends Migration
 			$table->id();
 			$table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
 			$table->foreignId('task_id')->constrained('tasks')->cascadeOnDelete();
+			$table->unsignedBigInteger('total_time');
 			$table->timestamps();
 		});
 	}
