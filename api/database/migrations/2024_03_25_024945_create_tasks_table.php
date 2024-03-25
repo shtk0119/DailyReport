@@ -14,7 +14,7 @@ return new class extends Migration
 			$table->string('title');
 			$table->unsignedInteger('status');
 			$table->date('start_date');
-			$table->date('finish_date');
+			$table->date('end_date');
 			$table->time('need_time');
 			$table->timestamps();
 		});
