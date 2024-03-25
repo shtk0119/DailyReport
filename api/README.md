@@ -42,17 +42,23 @@ exit
 **コンテナ停止/削除**
 ```
 sail down
+
+./vendor/bin/sail　down
 ```
 
 **コンテナ&ボリューム削除**
 ```
 sail down -v
+
+./vendor/bin/sail　down -v
 ```
 **※データを削除したい場合に使用。データベースに保存されているデータが全て削除されるので注意。**
 
 **コンテナ&ボリューム&イメージ削除**
 ```
 sail down --rmi all -v
+
+./vendor/bin/sail　down --rmi all -v
 ```
 |オプション|意味|
 | ----- | ----- |
