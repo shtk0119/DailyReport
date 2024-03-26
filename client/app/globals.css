@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'DigitalFont';
+  src: url('../public/fonts/digital-7/digital-7.ttf') format('truetype');
+}
+
 body {
   @apply bg-base;
 }
