@@ -12,10 +12,6 @@ return new class extends Migration
 			$table->id();
 			$table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
 			$table->string('title');
-			$table->unsignedInteger('status');
-			$table->date('start_date');
-			$table->date('end_date');
-			$table->unsignedBigInteger('need_time');
 			$table->timestamps();
 		});
 	}

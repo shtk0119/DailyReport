@@ -8,17 +8,20 @@ return new class extends Migration
 {
 	public function up(): void
 	{
-		Schema::create('study_records', function (Blueprint $table) {
+		Schema::create('task_schedules', function (Blueprint $table) {
 			$table->id();
 			$table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
 			$table->foreignId('task_id')->constrained('tasks')->cascadeOnDelete();
-			$table->unsignedInteger('total_time');
+			$table->unsignedInteger('status');
+			$table->date('start_date');
+			$table->date('end_date');
+			$table->unsignedInteger('need_time');
 			$table->timestamps();
 		});
 	}
 
 	public function down(): void
 	{
-		Schema::dropIfExists('study_records');
+		Schema::dropIfExists('task_schedules');
 	}
 };

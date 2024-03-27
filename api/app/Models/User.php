@@ -16,6 +16,11 @@ class User extends Authenticatable
 		return $this->hasMany(Task::class);
 	}
 
+	public function TaskSchedules(): HasMany
+	{
+		return $this->hasMany(TaskSchedule::class);
+	}
+
 	public function studyRecords(): HasMany
 	{
 		return $this->hasMany(StudyRecord::class);
