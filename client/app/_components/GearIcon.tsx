@@ -15,4 +15,4 @@ export function GearIcon(props: SVGProps<SVGSVGElement>) {
       ></path>
     </svg>
   );
-}
+};
