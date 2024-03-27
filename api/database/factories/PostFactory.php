@@ -20,11 +20,29 @@ class PostFactory extends Factory
   {
     return [
       'user_id' => User::inRandomOrder()->first()->id ?? User::factory(),
-      'task_id' => Task::inRandomOrder()->first()->id ?? Task::factory(),
-      'total_time_per_day' => fake()->numberBetween(1, 86400),
-      'comment' => fake()->sentence(),
+      'total_time_per_day' => $this->faker->numberBetween(1, 86400),
+      'comment' => $this->faker->sentence(),
       'created_at' => now(),
       'updated_at' => now(),
     ];
+  }
+
+  /**
+   * Configure the model factory.
+   *
+   * @return $this
+   */
+  public function configure()
+  {
+    return $this->afterCreating(function ($post) {
+      $tasks = Task::inRandomOrder()->limit(10)->get();
+      if ($tasks->isEmpty()) {
+        $tasks = Task::factory()->count(10)->create();
+      }
+      foreach ($tasks as $task) {
+        $post->tasks()->attach($task->id);
+      }
+      $post->task_ids = $tasks->pluck('id')->toArray();
+    });
   }
 }
