@@ -7,12 +7,12 @@ use App\Models\User;
 use App\Models\Task;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\StudyRecord>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Post>
  */
-class StudyRecordFactory extends Factory
+class PostFactory extends Factory
 {
   /**
-   * モデルのデフォルト状態を定義します。
+   * Define the model's default state.
    *
    * @return array<string, mixed>
    */
@@ -21,7 +21,8 @@ class StudyRecordFactory extends Factory
     return [
       'user_id' => User::inRandomOrder()->first()->id ?? User::factory(),
       'task_id' => Task::inRandomOrder()->first()->id ?? Task::factory(),
-      'total_time' => fake()->numberBetween(1, 10800),
+      'total_time_per_day' => fake()->numberBetween(1, 86400),
+      'comment' => fake()->sentence(),
       'created_at' => now(),
       'updated_at' => now(),
     ];
