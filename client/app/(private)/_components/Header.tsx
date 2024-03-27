@@ -1,4 +1,3 @@
-import React from 'react';
 import { GearIcon } from './GearIcon';
 
 const Header = () => {
