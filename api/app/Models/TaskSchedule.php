@@ -5,9 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Task extends Model
+class TaskSchedule extends Model
 {
 	use HasFactory;
 
@@ -16,13 +15,8 @@ class Task extends Model
 		return $this->belongsTo(User::class);
 	}
 
-	public function TaskSchedules(): HasMany
+	public function task(): BelongsTo
 	{
-		return $this->hasMany(TaskSchedule::class);
-	}
-
-	public function studyRecords(): HasMany
-	{
-		return $this->hasMany(StudyRecord::class);
+		return $this->belongsTo(Task::class);
 	}
 }
