@@ -8,7 +8,7 @@ import Link from 'next/link';
 const Calender = () => {
 	const [isListOpen, setIsListOpen] = useState(false);
 	const pullDownList = useRef(null);
-  
+
 	const pullDownDisplay = () => {
 		setIsListOpen(!isListOpen);
 	};
