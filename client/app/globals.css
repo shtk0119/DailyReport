@@ -7,6 +7,12 @@
   src: url('../public/fonts/digital-7/digital-7.ttf') format('truetype');
 }
 
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
 body {
   @apply bg-base;
 }

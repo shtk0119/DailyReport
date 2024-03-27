@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\StudyRecord;
 use Illuminate\Database\Seeder;
+use App\Models\StudyRecord;
 
 class StudyRecordSeeder extends Seeder
 {
