@@ -11,19 +11,19 @@ use App\Models\Task;
  */
 class StudyRecordFactory extends Factory
 {
-	/**
-	 * モデルのデフォルト状態を定義します。
-	 *
-	 * @return array<string, mixed>
-	 */
-	public function definition(): array
-	{
-		return [
-			'user_id' => User::inRandomOrder()->first()->id ?? User::factory(),
-			'task_id' => Task::inRandomOrder()->first()->id ?? Task::factory(),
-			'total_time' => fake()->numberBetween(1, 10800),
-			'created_at' => now(),
-			'updated_at' => now(),
-		];
-	}
+  /**
+   * モデルのデフォルト状態を定義します。
+   *
+   * @return array<string, mixed>
+   */
+  public function definition(): array
+  {
+    return [
+      'user_id' => User::inRandomOrder()->first()->id ?? User::factory(),
+      'task_id' => Task::inRandomOrder()->first()->id ?? Task::factory(),
+      'total_time' => fake()->numberBetween(1, 10800),
+      'created_at' => now(),
+      'updated_at' => now(),
+    ];
+  }
 }
