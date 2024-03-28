@@ -1,8 +1,8 @@
-import { GearIcon } from './GearIcon';
+import { GearIcon } from "./GearIcon";
 
 const Header = () => {
   return (
-    <div className="w-screen h-[10vh] text-white bg-[#5865F2] flex items-center justify-between">
+    <div className="w-screen h-[15vh] text-white bg-main flex items-center justify-between">
       <h1 className="text-2xl ml-8 md:ml-8 lg:ml-16">デイリポ＋</h1>
       <div className="flex">
         <GearIcon />
