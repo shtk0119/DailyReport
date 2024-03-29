@@ -10,9 +10,6 @@ class AuthController extends Controller
 	public function register(Request $request)
 	{
 		//新規登録
-		$input = $request->getContent();
-		$userData = json_decode($input, true);
-
 		$user = User::create([
 			'name' => $request->user['name'],
 			'group' => $request->user['group'],
