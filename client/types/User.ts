@@ -9,7 +9,7 @@ interface User {
 }
 
 interface UserResponse {
-  users: User[];
+  user: User;
 }
 
 interface UsersResponse {
