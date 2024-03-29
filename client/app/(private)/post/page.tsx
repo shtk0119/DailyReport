@@ -1,7 +1,5 @@
-import Learning from "../_components/Learning";
-
 const PostForm = () => {
-  return <Learning />;
+  return <div></div>;
 };
 
 export default PostForm;
