@@ -9,3 +9,5 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::get('/not-posted', [UserController::class, 'getNonPostedUsers']);
+// 学習中ユーザー
+Route::get('/learning-user', [UserController::class, 'getLearningUsers']);
