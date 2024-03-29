@@ -1,21 +1,21 @@
-"use client";
-import Link from "next/link";
-import useSWR from "swr";
-import Calender from "../_components/Calender";
-import { CommentIcon } from "../_components/CommentIcon";
+'use client';
+import Link from 'next/link';
+import useSWR from 'swr';
+import Calender from '../_components/Calender';
+import { CommentIcon } from '../_components/CommentIcon';
 
 const fetcher = async (url: string) => {
   const response = await fetch(url);
   if (!response.ok) {
-    throw new Error("データの取得に失敗しました。");
+    throw new Error('データの取得に失敗しました。');
   }
   return response.json();
 };
 
 export default function Home() {
   const { data, error, isLoading } = useSWR(
-    "http://localhost/api/not-posted",
-    fetcher
+    'http://localhost/api/not-posted',
+    fetcher,
   );
 
   if (error) return <div>failed to load</div>;
@@ -32,7 +32,7 @@ export default function Home() {
               {data.length}人
             </span>
           </h2>
-          <div className="bg-accent1 pb-3">
+          <div className="bg-accent1 pb-3 px-3">
             <div className="flex flex-wrap gap-3 ">
               {data.map((user: { id: number; name: string }) => (
                 <span
