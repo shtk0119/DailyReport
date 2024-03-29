@@ -11,30 +11,32 @@ use Illuminate\Support\Str;
  */
 class UserFactory extends Factory
 {
-	/**
-	 * ファクトリーが使用している現在のパスワード。
-	 */
-	protected static ?string $password;
+  /**
+   * ファクトリーが使用している現在のパスワード。
+   */
+  protected static ?string $password;
 
-	public function definition(): array
-	{
-		return [
-			'name' => fake()->name(),
-			'group' => fake()->numberBetween(1, 5),
-			'email' => fake()->unique()->safeEmail(),
-			'email_verified_at' => now(),
-			'password' => static::$password ??= Hash::make('password'),
-			'remember_token' => Str::random(10),
-		];
-	}
+  public function definition(): array
+  {
+    return [
+      'name' => fake()->name(),
+      'group' => fake()->numberBetween(1, 5),
+      'email' => fake()->unique()->safeEmail(),
+      'email_verified_at' => now(),
+      'password' => static::$password ??= Hash::make('password'),
+      'is_active' => $this->faker->boolean(),
+      'is_posted' => $this->faker->boolean(),
+      'remember_token' => Str::random(10),
+    ];
+  }
 
-	/**
-	 * モデルのメールアドレスが未検証であることを示します。
-	 */
-	public function unverified(): static
-	{
-		return $this->state(fn (array $attributes) => [
-			'email_verified_at' => null,
-		]);
-	}
+  /**
+   * モデルのメールアドレスが未検証であることを示します。
+   */
+  public function unverified(): static
+  {
+    return $this->state(fn (array $attributes) => [
+      'email_verified_at' => null,
+    ]);
+  }
 }
