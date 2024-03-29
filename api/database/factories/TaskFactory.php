@@ -10,11 +10,6 @@ use App\Models\User;
  */
 class TaskFactory extends Factory
 {
-	/**
-	 * モデルのデフォルト状態を定義します。
-	 *
-	 * @return array<string, mixed>
-	 */
 	public function definition(): array
 	{
 		return [

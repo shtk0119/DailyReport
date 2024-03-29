@@ -16,11 +16,6 @@ class UserFactory extends Factory
    */
   protected static ?string $password;
 
-  /**
-   * モデルのデフォルト状態を定義します。
-   *
-   * @return array<string, mixed>
-   */
   public function definition(): array
   {
     return [
