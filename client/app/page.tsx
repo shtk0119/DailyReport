@@ -26,8 +26,8 @@ const Top = () => {
           </Link>
         </div>
       </div>
-      <div className="w-full flex">
-        <Image src={'./logos/discord_white.svg'} alt="ロゴ" height={500} width={500} />
+      <div className="w-full flex justify-center">
+        <Image src={'/logos/sample_image.png'} alt="ロゴ" height={500} width={500} />
       </div>
     </div>
   );
