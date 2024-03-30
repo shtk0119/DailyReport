@@ -11,7 +11,7 @@ class TaskController extends Controller
 	/**
    * ユーザーのタスク一覧取得
    */
-  public function getTasks(int $userId)
+  public function getTasks(int $userId): TaskCollection
   {
     $tasks = Task::where('user_id', $userId)->get();
 		return new TaskCollection($tasks);

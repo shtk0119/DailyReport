@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\StudyRecordController;
 
 // Route::get('/user', function (Request $request) {
 //   return $request->user();
@@ -22,3 +23,5 @@ Route::get('/not-posted', [UserController::class, 'getNonPostedUsers']);
 Route::get('/learning-user', [UserController::class, 'getLearningUsers']);
 // ユーザーのタスク一覧
 Route::get('/tasks/{user_id}', [TaskController::class, 'getTasks']);
+// 今日学習中の学習記録
+Route::get('/record/{user_id}/{task_id}', [StudyRecordController::class, 'getStudyRecord']);
