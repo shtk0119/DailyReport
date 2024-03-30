@@ -11,7 +11,7 @@ const Top = () => {
             デイリポ+
           </h1>
         </div>
-        <h2 className="text-white text-5xl font-bold mb-6">
+        <h2 className="text-white text-5xl font-bold tracking-wider leading-tight mb-6">
           日報投稿に<br />
           +αの価値を提供する
         </h2>
