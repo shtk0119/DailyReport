@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import axios from 'axios';
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { PasswordShowIcon } from '../../_components/passwordShowIcon';
@@ -11,9 +12,21 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const startLogin = () => {
-      //認証用APIに接続
-      //成功の場合、HOME画面に遷移
+  const userLogin = async () => {
+    const loginUser = { user: { email, password }};
+
+    //ログイン認証
+    try {
+      const res = await axios.post('http://localhost/api/login', loginUser);
+      const tokenInfo = res.data['access_token'];
+      const setToken = tokenInfo.split('|');
+      sessionStorage.setItem('authToken', setToken[1]);
+    } catch (error) {
+      throw new Error('認証失敗しました');
+    }
+
+    //HOME画面に遷移
+    router.push('/home');
   };
 
   const pushedShowIcon = () => {
@@ -52,7 +65,7 @@ const Login = () => {
               <button
                 type="button"
                 className='tracking-tighter bg-[#5865F2] w-full h-[45px] text-2xl font-mono rounded-lg'
-                onClick={startLogin}
+                onClick={userLogin}
               >
                 ログイン
               </button>
