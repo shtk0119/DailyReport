@@ -62,10 +62,6 @@ const StopWatch = () => {
     }));
 
     try {
-      // const response = await axios.put(`http://localhost/api/record/${record.id}`, {
-      //   total_time: record.total_time
-      // });
-
       const requestBody = {
         total_time: time
       };
@@ -103,7 +99,6 @@ const StopWatch = () => {
       <select
         className="appearance-none bg-[#5865F2] text-white text-lg font-bold text-center p-2 rounded-lg w-52"
         value={selectValue}
-        // onChange={(e) => setSelectValue(e.target.value)}
         onChange={(e) => getStudyRecord(e)}
       >
         <option disabled value=''>計測するタスクを選択</option>
@@ -120,7 +115,6 @@ const StopWatch = () => {
               Stop
             </button>
             :
-            // <button className="absolute text-black font-bold bg-[#fff] rounded bottom-6 px-5 py-1" onClick={() => setIsRunning((prevState) => !prevState)}>
             <button className="absolute text-black font-bold bg-[#fff] rounded bottom-6 px-5 py-1" onClick={startRecord}>
               Start
             </button>
