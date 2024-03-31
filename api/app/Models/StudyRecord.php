@@ -19,4 +19,6 @@ class StudyRecord extends Model
 	{
 		return $this->belongsTo(Task::class);
 	}
+
+	protected $fillable = ['user_id', 'task_id, total_time'];
 }
