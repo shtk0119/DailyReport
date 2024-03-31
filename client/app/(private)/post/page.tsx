@@ -1,7 +1,20 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import EscapeButton from '../_components/EscapeButton';
 
 const PostForm = () => {
+  const [selectedTask, setSelectedTask] = useState('');
+  const [selectedTasks, setSelectedTasks] = useState([]);
+
+  const handleChange = (event) => {
+    const task = event.target.value;
+    setSelectedTask(task);
+    if (task && task !== 'ここから選択' && !selectedTasks.includes(task)) {
+      setSelectedTasks((prevTasks) => [...prevTasks, task]);
+    }
+  };
+
   return (
     <div className="relative">
       <div className="absolute top-0 right-10">
@@ -25,29 +38,27 @@ const PostForm = () => {
             <div className="text-white bg-accent2 py-2 px-4 mr-10 rounded">
               学習内容
             </div>
-            <select className="text-black font-semibold bg-white text-xl py-2 px-12">
+            <select
+              className="text-black font-semibold bg-white text-xl py-2 px-12"
+              value={selectedTask}
+              onChange={handleChange}
+            >
               <option value="QUEST">QUEST</option>
               <option value="AtCoder">AtCoder</option>
-              <option value="Paiza">Paiza</option>
-              <option value="チーム開発">チーム開発</option>
-              <option value="ここから選択" selected>
+              <option value="" selected>
                 ここから選択
               </option>
             </select>
           </div>
           <div className="flex flex-wrap gap-3 mt-7">
-            <span className="bg-white text-black text-xl font-semibold py-2 px-4 rounded">
-              QUEST
-            </span>
-            <span className="bg-white text-black text-xl font-semibold py-2 px-4 rounded">
-              AtCoder
-            </span>
-            <span className="bg-white text-black text-xl font-semibold py-2 px-4 rounded">
-              Paiza
-            </span>
-            <span className="bg-white text-black text-xl font-semibold py-2 px-4 rounded">
-              チーム開発
-            </span>
+            {selectedTasks.map((task, index) => (
+              <span
+                key={index}
+                className="bg-white text-black text-xl font-semibold py-2 px-4 rounded"
+              >
+                {task}
+              </span>
+            ))}
           </div>
         </div>
         <div className="container bg-accent1 mx-auto p-7">
