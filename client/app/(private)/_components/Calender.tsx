@@ -14,7 +14,7 @@ const Calender = () => {
   };
 
   return (
-    <div className="w-[950px] my-2">
+    <div className="w-[800px]">
       <div className="flex justify-between items-center bg-[#5865F2] py-3 text-white px-5">
         <h1 className="text-2xl">User1</h1>
         <div className="text-black" id="page-select">
@@ -44,7 +44,7 @@ const Calender = () => {
           plugins={[dayGridPlugin]}
           initialView="dayGridMonth"
           weekends={true}
-          height={"495px"}
+          height={"360px"}
           aspectRatio={1}
         />
       </div>
