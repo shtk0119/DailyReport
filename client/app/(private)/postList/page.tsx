@@ -1,6 +1,18 @@
+'use client';
+import useSWR from 'swr';
+import axios from 'axios';
 import EscapeButton from '../_components/EscapeButton';
 
+const fetcher = async (url: string) => {
+  return await axios.get(url);
+};
+
 const PostList = () => {
+  const { data, error, isLoading } = useSWR(`http://localhost/api/posts/6`, fetcher);
+
+  if (error) return <div>取得に失敗しました...</div>;
+  if(isLoading) return <div>読み込み中...</div>;
+
   return (
     <div className='flex flex-col items-center'>
       <div className='flex justify-between items-center w-full pl-20 pr-12 pt-10'>
