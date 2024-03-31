@@ -20,4 +20,15 @@ class StudyRecordController extends Controller
 
 		return new StudyRecordResource($studyRecord);
 	}
+
+	public function postStudyRecord(Request $request, int $id)
+	{
+		$studyRecord = StudyRecord::findOrFail($id);
+
+		$studyRecord->update([
+			'total_time' => $request->total_time
+		]);
+
+		return response()->json($studyRecord, 200);
+	}
 }
