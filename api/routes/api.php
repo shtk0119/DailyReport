@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\StudyRecordController;
 
@@ -21,6 +22,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 Route::get('/not-posted', [UserController::class, 'getNonPostedUsers']);
 // 学習中ユーザー
 Route::get('/learning-user', [UserController::class, 'getLearningUsers']);
+//ユーザーの投稿一覧
+Route::get('/posts/{user_id}', [PostController::class, 'userPostsIndex']);
 // ユーザーのタスク一覧
 Route::get('/tasks/{user_id}', [TaskController::class, 'getTasks']);
 // 今日学習中の学習記録

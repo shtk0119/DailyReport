@@ -29,6 +29,6 @@ class Task extends Model
 
   public function posts(): BelongsToMany
   {
-    return $this->belongsToMany(Post::class, 'posts_tasks');
+    return $this->belongsToMany(Post::class, 'posts_tasks', 'task_id', 'post_id')->withTimestamps();
   }
 }
