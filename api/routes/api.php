@@ -23,7 +23,7 @@ Route::get('/not-posted', [UserController::class, 'getNonPostedUsers']);
 // 学習中ユーザー
 Route::get('/learning-user', [UserController::class, 'getLearningUsers']);
 //ユーザーの投稿一覧
-Route::get('/posts/{id}', [PostController::class, 'userPostIndex']);
+Route::get('/posts/{user_id}', [PostController::class, 'userPostsIndex']);
 // ユーザーのタスク一覧
 Route::get('/tasks/{user_id}', [TaskController::class, 'getTasks']);
 // 今日学習中の学習記録
