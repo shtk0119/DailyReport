@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import { useRouter } from "next/navigation";
-import { EscapeIcon } from "./EscapeIcon";
+import { useRouter } from 'next/navigation';
+import { EscapeIcon } from './EscapeIcon';
 
 export default function EscapeButton() {
   const router = useRouter();
 
   return (
     <div
-      onClick={() => router.push("/home")}
+      onClick={() => router.push('/home')}
       className="flex flex-col items-center"
     >
       <EscapeIcon />
