@@ -25,9 +25,8 @@ class StudyRecordController extends Controller
 	{
 		$studyRecord = StudyRecord::findOrFail($id);
 
-		$studyRecord->update([
-			'total_time' => $request->total_time
-		]);
+		$studyRecord->total_time = $request->total_time;
+		$studyRecord->save();
 
 		return response()->json($studyRecord, 200);
 	}
