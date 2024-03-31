@@ -28,7 +28,6 @@ const StopWatch = () => {
     const hours = Math.floor(totalSeconds / 3600);
     const minutes = Math.floor((totalSeconds % 3600) / 60);
     const seconds = totalSeconds % 60;
-    // HH:MM:SS形式で返す。値が10未満の場合は0を先頭に付ける
     return [hours, minutes, seconds]
       .map(val => val < 10 ? `0${val}` : val)
       .join(':');
@@ -42,6 +41,17 @@ const StopWatch = () => {
     setTime(data.record.total_time);
     setRecord(data.record);
     console.log(data.record.id);
+  }
+
+  const startRecord = async () => {
+    setIsRunning((prevState) => !prevState);
+    const response = http.put(`/api/user/is_active/${record.user_id}`, {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    })
+
+    console.log(response);
   }
 
   const updateRecord = async () => {
@@ -110,7 +120,8 @@ const StopWatch = () => {
               Stop
             </button>
             :
-            <button className="absolute text-black font-bold bg-[#fff] rounded bottom-6 px-5 py-1" onClick={() => setIsRunning((prevState) => !prevState)}>
+            // <button className="absolute text-black font-bold bg-[#fff] rounded bottom-6 px-5 py-1" onClick={() => setIsRunning((prevState) => !prevState)}>
+            <button className="absolute text-black font-bold bg-[#fff] rounded bottom-6 px-5 py-1" onClick={startRecord}>
               Start
             </button>
           }
