@@ -22,4 +22,11 @@ class UserController extends Controller
     $users = User::where('is_active', true)->get();
     return new UserCollection($users);
   }
+
+  public function updateIsActiveUser(int $id)
+  {
+    $user = User::findOrFail($id);
+		$user->is_active = true;
+		$user->save();
+  }
 }

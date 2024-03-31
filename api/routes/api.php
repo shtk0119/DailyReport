@@ -28,5 +28,7 @@ Route::get('/posts/{user_id}', [PostController::class, 'userPostsIndex']);
 Route::get('/tasks/{user_id}', [TaskController::class, 'getTasks']);
 // 今日学習中の学習記録
 Route::get('/record/{user_id}/{task_id}', [StudyRecordController::class, 'getStudyRecord']);
-// 計測
+// 計測開始
+Route::put('/user/is_active/{id}', [UserController::class, 'updateIsActiveUser']);
+// 計測記録
 Route::put('/record/{id}', [StudyRecordController::class, 'postStudyRecord']);
